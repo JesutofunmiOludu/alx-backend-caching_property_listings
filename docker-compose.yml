@@ -1,21 +1,24 @@
-version: '3.8'
-
 services:
-  db:
+  postgres:
     image: postgres:latest
-    volumes:
-      - postgres_data:/var/lib/postgresql/data/
-    environment:
-      - POSTGRES_DB=property_db
-      - POSTGRES_USER=user
-      - POSTGRES_PASSWORD=password
+    container_name: property_postgres
     ports:
       - "5432:5432"
+    environment:
+      POSTGRES_DB: property_db
+      POSTGRES_USER: property_user
+      POSTGRES_PASSWORD: property_pass
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
 
   redis:
     image: redis:latest
+    container_name: property_redis
     ports:
       - "6379:6379"
+    volumes:
+      - redis_data:/data
 
 volumes:
   postgres_data:
+  redis_data:
