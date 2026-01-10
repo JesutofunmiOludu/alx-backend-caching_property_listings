@@ -2,12 +2,12 @@ services:
   postgres:
     image: postgres:latest
     container_name: property_postgres
-    ports:
-      - "5432:5432"
     environment:
       POSTGRES_DB: property_db
       POSTGRES_USER: property_user
       POSTGRES_PASSWORD: property_pass
+    ports:
+      - "5432:5432"
     volumes:
       - postgres_data:/var/lib/postgresql/data
 
