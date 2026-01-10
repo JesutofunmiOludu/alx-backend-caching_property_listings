@@ -2,7 +2,7 @@ from django.shortcuts import render
 from .models import Property
 from django.views.decorators.cache import cache_page
 from django.http import JsonResponse as JSONResponse
-from utils import get_all_properties
+from .utils import get_all_properties
 
 
 # Create your views here.
